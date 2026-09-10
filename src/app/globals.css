@@ -1,17 +1,44 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-alt: #f5f7fb;
+  --ink: #12151c;
+  --ink-soft: #5b6072;
+  --ink-faint: #9297a8;
+  --line: #e7e9f2;
+
+  --teal: #0f9b8e;
+  --teal-deep: #0b6f65;
+  --teal-tint: #e7f5f3;
+
+  --blue: #2f6fe0;
+  --blue-deep: #1f4fb0;
+  --blue-tint: #e8effd;
+
+  --honey: #d9a441;
+  --honey-deep: #a97c22;
+  --honey-tint: #fbf0dc;
+
+  --grad: linear-gradient(135deg, var(--teal), var(--blue));
+
+  --dark-bg: #0a0f1a;
+  --dark-ink: #f5f7fb;
+  --dark-ink-soft: #aab0c4;
+  --dark-glow-a: rgba(15, 155, 142, 0.45);
+  --dark-glow-b: rgba(47, 111, 224, 0.45);
+
+  --shadow: 0 1px 2px rgba(15, 20, 30, 0.05), 0 16px 32px -18px rgba(15, 20, 30, 0.22);
+  --shadow-lg: 0 4px 8px rgba(15, 20, 30, 0.06), 0 30px 60px -24px rgba(15, 20, 30, 0.28);
+
+  --font-display: "Plus Jakarta Sans", "Public Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --max: 1160px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
+* {
+  box-sizing: border-box;
 }
 
 html,
@@ -20,30 +47,177 @@ body {
   overflow-x: hidden;
 }
 
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  height: 100%;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-color: var(--teal) var(--surface-alt);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--grad);
+  border-radius: 999px;
+  border: 3px solid var(--surface-alt);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--teal-deep);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--ink);
+  text-wrap: balance;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p {
   margin: 0;
 }
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+}
+
+.gradientText {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pillPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #ffffff;
+  background: var(--grad);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 24px -10px rgba(15, 155, 142, 0.55);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pillPrimary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px -10px rgba(15, 155, 142, 0.65);
+}
+
+.pillSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+}
+
+.pillSecondary:hover {
+  border-color: var(--teal);
+  color: var(--teal-deep);
+}
+
+.reveal {
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-left {
+  transform: translateX(-36px);
+}
+
+.reveal-right {
+  transform: translateX(36px);
+}
+
+.reveal-up {
+  transform: translateY(28px);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -1,0 +1,46 @@
+.section {
+  padding-block: 56px 80px;
+  max-width: 760px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.updated {
+  color: var(--ink-faint);
+  font-size: 0.82rem;
+  margin-bottom: 32px;
+  display: block;
+}
+
+.body h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-top: 32px;
+  margin-bottom: 10px;
+}
+
+.body p,
+.body li {
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+  margin-bottom: 10px;
+}
+
+.body ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.notice {
+  margin-top: 36px;
+  padding: 16px 20px;
+  background: var(--honey-tint);
+  border: 1px solid var(--honey);
+  border-radius: 14px;
+  font-size: 0.86rem;
+  color: var(--ink);
+}

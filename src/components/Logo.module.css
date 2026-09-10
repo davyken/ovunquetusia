@@ -1,0 +1,12 @@
+.mark {
+  flex-shrink: 0;
+}
+.circle {
+  fill: var(--teal);
+}
+.cap {
+  fill: var(--surface);
+}
+.cross {
+  fill: var(--teal-deep);
+}

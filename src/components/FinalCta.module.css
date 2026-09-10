@@ -1,0 +1,70 @@
+.wrap {
+  padding-block: 20px 72px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: var(--dark-bg);
+  border-radius: 28px;
+  padding: 64px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.glowA,
+.glowB {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: 0;
+}
+
+.glowA {
+  background: var(--dark-glow-a);
+  top: -160px;
+  left: -100px;
+}
+
+.glowB {
+  background: var(--dark-glow-b);
+  bottom: -180px;
+  right: -100px;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 560px;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--honey);
+}
+
+.heading {
+  font-size: clamp(1.7rem, 3.6vw, 2.4rem);
+  font-weight: 800;
+  color: var(--dark-ink);
+}
+
+.sub {
+  color: var(--dark-ink-soft);
+  font-size: 1rem;
+}
+
+.cta {
+  margin-top: 8px;
+}

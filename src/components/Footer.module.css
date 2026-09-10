@@ -1,0 +1,42 @@
+.footer {
+  border-top: 1px solid var(--line);
+  background: var(--surface-alt);
+  padding-block: 32px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.legal {
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  line-height: 1.5;
+}
+
+.links {
+  display: flex;
+  gap: 18px;
+  font-size: 0.82rem;
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--ink-soft);
+}
+
+.links a:hover {
+  color: var(--teal-deep);
+}
