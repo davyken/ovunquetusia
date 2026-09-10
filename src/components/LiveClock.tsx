@@ -18,6 +18,8 @@ export function LiveClock({ locale }: { locale: Locale }) {
   const [now, setNow] = useState<Date | null>(null);
 
   useEffect(() => {
+    // Syncs to the external system clock, client-only (avoids a server/client mismatch).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setNow(new Date());
     const id = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(id);
