@@ -1,7 +1,11 @@
 import { business } from "@/lib/business";
+import { getDictionary, type Locale } from "@/i18n";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import styles from "./TopBar.module.css";
 
-export function TopBar() {
+export function TopBar({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <div className={styles.bar}>
       <div className={`container ${styles.inner}`}>
@@ -21,7 +25,10 @@ export function TopBar() {
           </a>
         </div>
 
-        <span className={styles.tagline}>{business.serviceArea}</span>
+        <div className={styles.right}>
+          <span className={styles.tagline}>{dict.topBar.tagline}</span>
+          <LanguageSwitcher locale={locale} />
+        </div>
       </div>
     </div>
   );

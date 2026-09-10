@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { business, zones } from "@/lib/business";
+import { business } from "@/lib/business";
 import { RevealLi } from "./RevealLi";
+import { getDictionary, localizePath, type Locale } from "@/i18n";
 import styles from "./Zones.module.css";
 
 function PinIcon() {
@@ -12,15 +13,19 @@ function PinIcon() {
   );
 }
 
-export function Zones() {
+export function Zones({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+  const zones = dict.zones;
+  const base = zones.find((z) => z.note === "base operativa");
+
   return (
     <section id="zone" className={`${styles.section} container`}>
       <div className={styles.head}>
-        <span className="eyebrow">Dove opero</span>
-        <h2 className={styles.heading}>Zone servite</h2>
+        <span className="eyebrow">{dict.zonesSection.eyebrow}</span>
+        <h2 className={styles.heading}>{dict.zonesSection.heading}</h2>
         <p className={styles.sub}>
-          Base operativa a {zones.find((z) => z.note === "base operativa")?.name}, con
-          interventi in tutta {business.serviceArea.toLowerCase()}.
+          {dict.zonesSection.subPrefix} {base?.name}, {dict.zonesSection.subSuffix}{" "}
+          {dict.common.serviceArea}.
         </p>
       </div>
 
@@ -33,18 +38,16 @@ export function Zones() {
               index={i}
               className={`${styles.card} ${highlighted ? styles.highlighted : ""}`}
             >
-              {highlighted && <span className={styles.ribbon}>Base operativa</span>}
+              {highlighted && <span className={styles.ribbon}>{dict.zonesSection.baseLabel}</span>}
               <span className={styles.icon}>
                 <PinIcon />
               </span>
               <h3 className={styles.cardTitle}>{zone.name}</h3>
               <p className={styles.cardNote}>
-                {highlighted
-                  ? business.addressLine
-                  : zone.note || "Interventi su richiesta"}
+                {highlighted ? business.addressLine : zone.note || dict.zonesSection.fallbackNote}
               </p>
-              <Link href="/contatti" className={styles.cta}>
-                Richiedi disponibilit&agrave; &rarr;
+              <Link href={localizePath("/contatti", locale)} className={styles.cta}>
+                {dict.zonesSection.cta}
               </Link>
             </RevealLi>
           );

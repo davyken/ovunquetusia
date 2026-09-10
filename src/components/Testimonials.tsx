@@ -1,5 +1,5 @@
-import { testimonials } from "@/lib/business";
 import { RevealLi } from "./RevealLi";
+import { getDictionary, type Locale } from "@/i18n";
 import styles from "./Testimonials.module.css";
 
 function Stars() {
@@ -14,19 +14,19 @@ function Stars() {
   );
 }
 
-export function Testimonials() {
+export function Testimonials({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <section id="testimonianze" className={`${styles.section} container`}>
       <div className={styles.head}>
-        <span className="eyebrow">Le loro parole</span>
-        <h2 className={styles.heading}>Cosa dicono di me</h2>
-        <span className={styles.flag}>
-          Esempi segnaposto — da sostituire con recensioni reali dei pazienti
-        </span>
+        <span className="eyebrow">{dict.testimonialsSection.eyebrow}</span>
+        <h2 className={styles.heading}>{dict.testimonialsSection.heading}</h2>
+        <span className={styles.flag}>{dict.testimonialsSection.flag}</span>
       </div>
 
       <ul className={styles.grid}>
-        {testimonials.map((item, i) => (
+        {dict.testimonials.map((item, i) => (
           <RevealLi key={item.author} index={i} className={styles.card}>
             <span className={styles.quoteMark} aria-hidden="true">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">

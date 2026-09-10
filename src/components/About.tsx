@@ -1,36 +1,33 @@
 import { business } from "@/lib/business";
+import { getDictionary, type Locale } from "@/i18n";
 import styles from "./About.module.css";
 
-const credentials = [
-  { term: "Formazione", value: business.degree },
-  { term: "Albo professionale", value: business.opiRegistration },
-  { term: "Attività", value: `Libera professionista, ${business.piva}` },
-  { term: "Zona operativa", value: business.serviceArea },
-];
+export function About({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+  const c = dict.about.credentials;
 
-export function About() {
+  const credentials = [
+    { term: c.formazione, value: dict.common.degree },
+    { term: c.albo, value: dict.common.opiRegistration },
+    { term: c.attivita, value: `${c.attivitaValuePrefix}, ${business.piva}` },
+    { term: c.zona, value: dict.common.serviceArea },
+  ];
+
   return (
     <section id="chi-sono" className={styles.section}>
       <div className={`container ${styles.grid}`}>
         <div className={styles.portraitWrap}>
           <div className={styles.portrait} aria-hidden="true">
-            <span>Foto professionale</span>
+            <span>{dict.about.portraitPlaceholder}</span>
           </div>
         </div>
 
         <div className={styles.content}>
-          <span className="eyebrow">Chi sono</span>
+          <span className="eyebrow">{dict.about.eyebrow}</span>
           <h2 className={styles.heading}>
-            Ciao, sono <span className="gradientText">{business.displayName}</span>
+            {dict.about.headingPre} <span className="gradientText">{business.displayName}</span>
           </h2>
-          <p className={styles.lead}>
-            Sono {business.displayName} Kennang Tsague, infermiera laureata
-            all&rsquo;Università degli Studi di Roma &ldquo;Tor Vergata&rdquo;.
-            Ho scelto l&rsquo;assistenza domiciliare perché credo che le cure
-            migliori siano quelle che rispettano i tempi e la casa della
-            persona che le riceve — con presenza, ascolto e competenza
-            clinica.
-          </p>
+          <p className={styles.lead}>{dict.about.lead}</p>
 
           <ul className={styles.badges}>
             {credentials.map((item) => (

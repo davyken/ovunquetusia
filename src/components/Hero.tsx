@@ -1,15 +1,12 @@
 import Link from "next/link";
 import { business } from "@/lib/business";
+import { getDictionary, localizePath, type Locale } from "@/i18n";
 import styles from "./Hero.module.css";
 
-const avatarStack = [
-  { initials: "M", label: "Medicazioni" },
-  { initials: "I", label: "Iniezioni" },
-  { initials: "V", label: "Parametri vitali" },
-  { initials: "A", label: "Anziani" },
-];
+export function Hero({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+  const h = dict.hero;
 
-export function Hero() {
   return (
     <section className={styles.hero}>
       <div className={`container ${styles.grid}`}>
@@ -18,39 +15,34 @@ export function Hero() {
             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
               <path d="M12 2l1.8 5.6L19.4 9l-5.6 1.8L12 16.4l-1.8-5.6L4.6 9l5.6-1.4z" />
             </svg>
-            {business.role} &middot; OPI Roma n. {business.opiId}
+            {dict.common.role} &middot; {h.eyebrowOpi}
           </span>
 
           <h1 className={styles.headline}>
-            L&rsquo;assistenza infermieristica arriva da te,{" "}
-            <span className="gradientText">ovunque tu sia.</span>
+            {h.headlinePre} <span className="gradientText">{h.headlineHighlight}</span>
           </h1>
 
-          <p className={styles.sub}>
-            Cure infermieristiche professionali a domicilio a Roma e provincia:
-            medicazioni, iniezioni, assistenza post-operatoria e supporto agli
-            anziani, con visite pianificate attorno alle tue esigenze.
-          </p>
+          <p className={styles.sub}>{h.sub}</p>
 
           <div className={styles.ctas}>
-            <Link href="/contatti" className="pillPrimary">
-              Prenota una visita
+            <Link href={localizePath("/contatti", locale)} className="pillPrimary">
+              {h.ctaBook}
             </Link>
             <a href={business.phoneHref} className="pillSecondary">
-              Chiama {business.phone}
+              {h.ctaCall} {business.phone}
             </a>
           </div>
 
           <div className={styles.proof}>
             <div className={styles.avatars}>
-              {avatarStack.map((item) => (
-                <span key={item.initials} title={item.label} className={styles.avatar}>
-                  {item.initials}
+              {h.avatarLabels.map((label) => (
+                <span key={label} title={label} className={styles.avatar}>
+                  {label.charAt(0).toUpperCase()}
                 </span>
               ))}
             </div>
             <span className={styles.proofText}>
-              Assistenza qualificata a domicilio, con cura
+              {h.proofText}
               <svg
                 viewBox="0 0 24 24"
                 width="13"
@@ -69,32 +61,22 @@ export function Hero() {
           <div className={styles.glow} aria-hidden="true" />
           <div className={styles.card} aria-hidden="true">
             <div className={styles.cardHead}>
-              <span>Scheda di visita</span>
-              <span className={styles.cardDate}>Oggi, ore 15:30</span>
+              <span>{h.card.title}</span>
+              <span className={styles.cardDate}>{h.card.date}</span>
             </div>
             <dl className={styles.cardRows}>
-              <div>
-                <dt>Intervento</dt>
-                <dd>Medicazione post-operatoria</dd>
-              </div>
-              <div>
-                <dt>Parametri</dt>
-                <dd>PA 120/80 &middot; SpO2 98% &middot; T 36,5&deg;</dd>
-              </div>
-              <div>
-                <dt>Zona</dt>
-                <dd>Guidonia Montecelio</dd>
-              </div>
-              <div>
-                <dt>Prossima visita</dt>
-                <dd>Gioved&igrave;, ore 10:00</dd>
-              </div>
+              {h.card.rows.map((row) => (
+                <div key={row.label}>
+                  <dt>{row.label}</dt>
+                  <dd>{row.value}</dd>
+                </div>
+              ))}
             </dl>
           </div>
         </div>
       </div>
 
-      <a href="#servizi" className={styles.scrollCue} aria-label="Scorri per vedere i servizi">
+      <a href="#servizi" className={styles.scrollCue} aria-label={h.scrollAria}>
         <span className={styles.scrollDot} />
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M6 9l6 6 6-6" />

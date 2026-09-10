@@ -1,25 +1,9 @@
 import type { Metadata } from "next";
-import { Nav } from "@/components/Nav";
-import { About } from "@/components/About";
-import { FinalCta } from "@/components/FinalCta";
-import { Footer } from "@/components/Footer";
+import { ChiSonoContent } from "@/components/pages/ChiSonoContent";
+import { buildMetadata } from "@/i18n/metadata";
 
-export const metadata: Metadata = {
-  title: "Chi Sono",
-  description:
-    "Carole Estelle Kennang Tsague, infermiera libera professionista a Roma. Laurea in Infermieristica Tor Vergata, iscritta all'Albo OPI di Roma.",
-  alternates: { canonical: "/chi-sono" },
-};
+export const metadata: Metadata = buildMetadata("it", "chiSono", "/chi-sono");
 
-export default function ChiSonoPage() {
-  return (
-    <>
-      <Nav />
-      <main>
-        <About />
-        <FinalCta />
-      </main>
-      <Footer />
-    </>
-  );
+export default function Page() {
+  return <ChiSonoContent locale="it" />;
 }

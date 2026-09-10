@@ -1,6 +1,6 @@
 .bar {
-  background: var(--dark-bg);
-  color: var(--dark-ink-soft);
+  background: var(--teal-deep);
+  color: #d9ece9;
 }
 
 .inner {
@@ -23,15 +23,21 @@
   align-items: center;
   gap: 6px;
   text-decoration: none;
-  color: var(--dark-ink-soft);
+  color: #d9ece9;
 }
 
 .item:hover {
-  color: var(--dark-ink);
+  color: #ffffff;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .tagline {
-  color: var(--dark-ink-soft);
+  color: #d9ece9;
   font-weight: 600;
   letter-spacing: 0.02em;
 }

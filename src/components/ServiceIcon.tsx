@@ -1,6 +1,4 @@
-import type { ServiceItem } from "@/lib/business";
-
-const paths: Record<ServiceItem["icon"], React.ReactNode> = {
+const paths: Record<string, React.ReactNode> = {
   bandage: (
     <>
       <rect x="3" y="10" width="18" height="4" rx="2" transform="rotate(-30 12 12)" />
@@ -46,7 +44,7 @@ const paths: Record<ServiceItem["icon"], React.ReactNode> = {
   ),
 };
 
-export function ServiceIcon({ name }: { name: ServiceItem["icon"] }) {
+export function ServiceIcon({ name }: { name: string }) {
   return (
     <svg
       viewBox="0 0 24 24"

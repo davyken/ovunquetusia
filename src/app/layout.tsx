@@ -21,63 +21,21 @@ export const metadata: Metadata = {
     default: `${business.brand} — Infermiera a domicilio a Roma`,
     template: `%s — ${business.brand}`,
   },
-  description:
-    "Assistenza infermieristica a domicilio a Roma e provincia: medicazioni, iniezioni, assistenza post-operatoria e supporto agli anziani. Infermiera libera professionista, iscritta OPI Roma n. 48541.",
-  keywords: [
-    "assistenza infermieristica Roma",
-    "infermiera a domicilio Roma",
-    "infermiere a domicilio Roma",
-    "assistenza infermiera domiciliare Roma",
-    "medicazioni a domicilio Roma",
-  ],
-  openGraph: {
-    title: `${business.brand} — Infermiera a domicilio a Roma`,
-    description: business.tagline,
-    url: business.siteUrl,
-    siteName: business.brand,
-    locale: "it_IT",
-    type: "website",
-  },
-  alternates: {
-    canonical: "/",
-  },
 };
+
+// Sets <html lang> from the URL without opting the app out of static rendering
+// (no request-time APIs) — runs synchronously before paint, so there's no flash.
+const setLangScript = `document.documentElement.lang=location.pathname.startsWith('/fr')?'fr':location.pathname.startsWith('/en')?'en':'it';`;
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    name: business.legalName,
-    alternateName: business.brand,
-    description:
-      "Assistenza infermieristica a domicilio a Roma e provincia: medicazioni, iniezioni, assistenza post-operatoria, supporto agli anziani.",
-    url: business.siteUrl,
-    telephone: business.phone,
-    email: business.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Via Caserta 6",
-      postalCode: "00012",
-      addressLocality: "Guidonia Montecelio",
-      addressRegion: "RM",
-      addressCountry: "IT",
-    },
-    areaServed: ["Roma", "Guidonia Montecelio", "Tivoli", "Fonte Nuova", "Mentana"],
-    medicalSpecialty: "Nursing",
-    priceRange: "€€",
-  };
-
   return (
     <html lang="it" className={`${jakarta.variable} ${publicSans.variable}`}>
       <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <script dangerouslySetInnerHTML={{ __html: setLangScript }} />
         {children}
       </body>
     </html>

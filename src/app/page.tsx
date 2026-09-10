@@ -1,23 +1,9 @@
-import { Nav } from "@/components/Nav";
-import { Hero } from "@/components/Hero";
-import { Services } from "@/components/Services";
-import { HowItWorks } from "@/components/HowItWorks";
-import { Testimonials } from "@/components/Testimonials";
-import { FinalCta } from "@/components/FinalCta";
-import { Footer } from "@/components/Footer";
+import type { Metadata } from "next";
+import { HomeContent } from "@/components/pages/HomeContent";
+import { buildMetadata } from "@/i18n/metadata";
 
-export default function Home() {
-  return (
-    <>
-      <Nav />
-      <main>
-        <Hero />
-        <Services />
-        <HowItWorks />
-        <Testimonials />
-        <FinalCta />
-      </main>
-      <Footer />
-    </>
-  );
+export const metadata: Metadata = buildMetadata("it", "home", "/");
+
+export default function Page() {
+  return <HomeContent locale="it" />;
 }

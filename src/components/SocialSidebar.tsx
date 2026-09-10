@@ -1,8 +1,11 @@
 import { socials } from "@/lib/business";
 import { SocialIcon } from "./SocialIcon";
+import { getDictionary, type Locale } from "@/i18n";
 import styles from "./SocialSidebar.module.css";
 
-export function SocialSidebar() {
+export function SocialSidebar({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <aside className={styles.rail} aria-label="Social media">
       <ul className={styles.list}>
@@ -21,7 +24,7 @@ export function SocialSidebar() {
         ))}
       </ul>
       <span className={styles.line} aria-hidden="true" />
-      <span className={styles.label}>Seguimi</span>
+      <span className={styles.label}>{dict.socialSidebar.followLabel}</span>
     </aside>
   );
 }

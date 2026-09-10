@@ -1,25 +1,9 @@
 import type { Metadata } from "next";
-import { Nav } from "@/components/Nav";
-import { Services } from "@/components/Services";
-import { FinalCta } from "@/components/FinalCta";
-import { Footer } from "@/components/Footer";
+import { ServiziContent } from "@/components/pages/ServiziContent";
+import { buildMetadata } from "@/i18n/metadata";
 
-export const metadata: Metadata = {
-  title: "Servizi",
-  description:
-    "Assistenza infermieristica a domicilio a Roma: medicazioni, iniezioni, parametri vitali, assistenza post-operatoria, anziani e non autosufficienti.",
-  alternates: { canonical: "/servizi" },
-};
+export const metadata: Metadata = buildMetadata("it", "servizi", "/servizi");
 
-export default function ServiziPage() {
-  return (
-    <>
-      <Nav />
-      <main>
-        <Services />
-        <FinalCta />
-      </main>
-      <Footer />
-    </>
-  );
+export default function Page() {
+  return <ServiziContent locale="it" />;
 }
