@@ -1,6 +1,7 @@
 import { business } from "@/lib/business";
 import { getDictionary, type Locale } from "@/i18n";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { LiveClock } from "./LiveClock";
 import styles from "./TopBar.module.css";
 
 export function TopBar({ locale }: { locale: Locale }) {
@@ -26,6 +27,7 @@ export function TopBar({ locale }: { locale: Locale }) {
         </div>
 
         <div className={styles.right}>
+          <LiveClock locale={locale} />
           <span className={styles.tagline}>{dict.topBar.tagline}</span>
           <LanguageSwitcher locale={locale} />
         </div>

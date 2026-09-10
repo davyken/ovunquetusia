@@ -1,0 +1,33 @@
+.clock {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #d9ece9;
+}
+
+.date {
+  text-transform: capitalize;
+}
+
+.time {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 860px) {
+  .date {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .clock {
+    display: none;
+  }
+}
