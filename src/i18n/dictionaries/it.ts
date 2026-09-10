@@ -156,6 +156,9 @@ const dictionary = {
     eyebrow: "Le loro parole",
     heading: "Cosa dicono di me",
     flag: "Esempi segnaposto — da sostituire con recensioni reali dei pazienti",
+    prev: "Testimonianza precedente",
+    next: "Testimonianza successiva",
+    goTo: "Vai alla testimonianza",
   },
   testimonials: [
     {

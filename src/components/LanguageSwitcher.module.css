@@ -1,28 +1,58 @@
 .switcher {
-  display: flex;
+  position: relative;
+}
+
+.trigger {
+  display: inline-flex;
   align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 4px 6px;
+  border-radius: 5px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--dark-ink);
+  cursor: pointer;
+}
+
+.trigger:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 140px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow-lg);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
   gap: 2px;
+  z-index: 70;
 }
 
 .option {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 26px;
-  padding: 3px 6px;
-  border-radius: 5px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  display: block;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink-soft);
   text-decoration: none;
-  color: var(--dark-ink-soft);
 }
 
 .option:hover {
-  color: var(--dark-ink);
+  background: var(--teal-tint);
+  color: var(--teal-deep);
 }
 
 .active {
-  background: rgba(255, 255, 255, 0.14);
-  color: var(--dark-ink);
+  color: var(--teal-deep);
+  background: var(--teal-tint);
 }

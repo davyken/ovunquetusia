@@ -158,6 +158,9 @@ const dictionary: Dictionary = {
     eyebrow: "In their words",
     heading: "What people say about me",
     flag: "Placeholder examples — to be replaced with real patient reviews",
+    prev: "Previous testimonial",
+    next: "Next testimonial",
+    goTo: "Go to testimonial",
   },
   testimonials: [
     {

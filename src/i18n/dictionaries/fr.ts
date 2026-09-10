@@ -158,6 +158,9 @@ const dictionary: Dictionary = {
     eyebrow: "Leurs mots",
     heading: "Ce qu'ils disent de moi",
     flag: "Exemples provisoires — à remplacer par de vrais avis de patients",
+    prev: "Témoignage précédent",
+    next: "Témoignage suivant",
+    goTo: "Aller au témoignage",
   },
   testimonials: [
     {
