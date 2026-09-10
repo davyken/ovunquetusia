@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Public_Sans } from "next/font/google";
 import { business } from "@/lib/business";
+import { IntroSplash } from "@/components/IntroSplash";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -36,6 +37,7 @@ export default function RootLayout({
     <html lang="it" className={`${jakarta.variable} ${publicSans.variable}`}>
       <body>
         <script dangerouslySetInnerHTML={{ __html: setLangScript }} />
+        <IntroSplash />
         {children}
       </body>
     </html>

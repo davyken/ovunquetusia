@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { business } from "@/lib/business";
 import { getDictionary, localizePath, type Locale } from "@/i18n";
+import { RotatingHeadline } from "./RotatingHeadline";
 import styles from "./Hero.module.css";
 
 export function Hero({ locale }: { locale: Locale }) {
@@ -18,9 +19,11 @@ export function Hero({ locale }: { locale: Locale }) {
             {dict.common.role} &middot; {h.eyebrowOpi}
           </span>
 
-          <h1 className={styles.headline}>
-            {h.headlinePre} <span className="gradientText">{h.headlineHighlight}</span>
-          </h1>
+          <RotatingHeadline
+            phrases={h.rotatingPhrases}
+            className={`${styles.headline} gradientText`}
+            cursorClassName={styles.headlineCursor}
+          />
 
           <p className={styles.sub}>{h.sub}</p>
 

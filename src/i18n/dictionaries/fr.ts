@@ -33,6 +33,11 @@ const dictionary: Dictionary = {
     eyebrowOpi: "OPI Rome n° 48541",
     headlinePre: "Les soins infirmiers viennent à vous,",
     headlineHighlight: "où que vous soyez.",
+    rotatingPhrases: [
+      "Les soins infirmiers viennent à vous, où que vous soyez.",
+      "Pansements, injections et soins, directement chez vous.",
+      "Une infirmière de confiance, où que vous soyez à Rome.",
+    ],
     sub: "Soins infirmiers professionnels à domicile à Rome et dans sa province : pansements, injections, suivi post-opératoire et soutien aux personnes âgées, avec des visites organisées selon vos besoins.",
     ctaBook: "Réserver une visite",
     ctaCall: "Appeler",

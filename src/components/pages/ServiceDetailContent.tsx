@@ -17,7 +17,7 @@ export function ServiceDetailContent({
 }) {
   const dict = getDictionary(locale);
   const sp = dict.servicePage;
-  const others = dict.services.filter((s) => s.slug !== service.slug).slice(0, 3);
+  const others = dict.services.filter((s) => s.slug !== service.slug);
 
   return (
     <>

@@ -33,6 +33,11 @@ const dictionary: Dictionary = {
     eyebrowOpi: "OPI Rome no. 48541",
     headlinePre: "Nursing care comes to you,",
     headlineHighlight: "wherever you are.",
+    rotatingPhrases: [
+      "Nursing care comes to you, wherever you are.",
+      "Dressings, injections and care, right at your door.",
+      "A nurse you can trust, wherever you are in Rome.",
+    ],
     sub: "Professional at-home nursing care in Rome and the surrounding area: wound dressings, injections, post-surgical care and support for the elderly, with visits planned around your needs.",
     ctaBook: "Book a visit",
     ctaCall: "Call",

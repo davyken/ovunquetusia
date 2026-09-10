@@ -31,6 +31,11 @@ const dictionary = {
     eyebrowOpi: "OPI Roma n. 48541",
     headlinePre: "L'assistenza infermieristica arriva da te,",
     headlineHighlight: "ovunque tu sia.",
+    rotatingPhrases: [
+      "L'assistenza infermieristica arriva da te, ovunque tu sia.",
+      "Medicazioni, iniezioni e cura, direttamente a casa tua.",
+      "Un'infermiera di fiducia, ovunque tu sia a Roma.",
+    ],
     sub: "Cure infermieristiche professionali a domicilio a Roma e provincia: medicazioni, iniezioni, assistenza post-operatoria e supporto agli anziani, con visite pianificate attorno alle tue esigenze.",
     ctaBook: "Prenota una visita",
     ctaCall: "Chiama",
